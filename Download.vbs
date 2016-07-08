@@ -3,6 +3,7 @@ Option Explicit
 Dim objShell, objFSO, objFile, prefix
 
 '# youtube-dlコマンド設定
+'# オーディオのみ過去5日以内に登録されたものが対象
 prefix = "youtube-dl.exe " &_
 		"--no-check-certificate " &_
 		"--download-archive Downloaded.txt " &_

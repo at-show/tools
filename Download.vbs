@@ -5,10 +5,10 @@
 '#################################################
 Option Explicit
 
-Dim objShell, objFSO, objFile, prefix, iTunesFolder
-
 '# iTunesフォルダ
-iTunesFolder = "L:\data\MyMusic\iTunes Music\iTunes に自動的に追加\"
+Const iTunesFolder = "L:\data\MyMusic\iTunes Music\iTunes に自動的に追加\"
+
+Dim objShell, objFSO, objFile, prefix
 
 '# youtube-dlコマンド設定
 '# オーディオのみ過去5日以内に登録されたものが対象

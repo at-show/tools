@@ -13,19 +13,18 @@ iTunesFolder = "L:\data\MyMusic\iTunes Music\iTunes に自動的に追加\"
 '# youtube-dlコマンド設定
 '# オーディオのみ過去5日以内に登録されたものが対象
 prefix = "youtube-dl.exe " &_
-		"--no-check-certificate " &_
-		"--download-archive Downloaded.txt " &_
-		"-x --audio-format ""m4a"" " &_
-		"--prefer-ffmpeg " &_
-		"--audio-quality 0 " &_
-		"--dateafter now-5day " &_
-		"-o ""Files\%(title)s.%(ext)s"" "
+	"--no-check-certificate " &_
+	"--download-archive Downloaded.txt " &_
+	"-x --audio-format ""m4a"" " &_
+	"--prefer-ffmpeg " &_
+	"--audio-quality 0 " &_
+	"--dateafter now-5day " &_
+	"-o ""Files\%(title)s.%(ext)s"" "
 
 '# ターゲットに記載されたURLをダウンロード
 Set objShell = WScript.CreateObject("WScript.Shell")
 Set objFSO = WScript.CreateObject("Scripting.FileSystemObject")
 Set objFile = objFSO.OpenTextFile("target.txt")
-
 Do While objFile.AtEndOfStream <> True
 	Dim command
 	command = prefix & objFile.ReadLine

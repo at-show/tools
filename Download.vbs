@@ -1,6 +1,14 @@
+'#################################################
+'# Youtubeから指定したURLのオーディオを取得するスクリプト
+'# "youtube-dl.exe","ffmpeg.exe","ffprobe.exe"必須
+'# "target.txt"に対象URLを記載して同階層に保存すること
+'#################################################
 Option Explicit
 
-Dim objShell, objFSO, objFile, prefix
+Dim objShell, objFSO, objFile, prefix, iTunesFolder
+
+'# iTunesフォルダ
+iTunesFolder = "L:\data\MyMusic\iTunes Music\iTunes に自動的に追加\"
 
 '# youtube-dlコマンド設定
 '# オーディオのみ過去5日以内に登録されたものが対象
@@ -29,7 +37,7 @@ objFile.Close
 Call objShell.Run("cmd /c ren Files\*.m4a *.m4b", 1, true)
 
 '# iTunesに自動的に追加フォルダへ移動
-Call objFSO.MoveFile("Files\*", "L:\data\MyMusic\iTunes Music\iTunes に自動的に追加\")
+Call objFSO.MoveFile("Files\*", iTunesFolder)
 
 
 Set objShell = Nothing

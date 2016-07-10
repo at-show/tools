@@ -1,17 +1,17 @@
 '#################################################
-'# Youtube‚©‚çw’è‚µ‚½URL‚ÌƒI[ƒfƒBƒI‚ğæ“¾‚·‚éƒXƒNƒŠƒvƒg
-'# "youtube-dl.exe","ffmpeg.exe","ffprobe.exe"•K{
-'# "target.txt"‚É‘ÎÛURL‚ğ‹LÚ‚µ‚Ä“¯ŠK‘w‚É•Û‘¶‚·‚é‚±‚Æ
+'# Youtubeã‹ã‚‰æŒ‡å®šã—ãŸURLã®ã‚ªãƒ¼ãƒ‡ã‚£ã‚ªã‚’å–å¾—ã™ã‚‹ã‚¹ã‚¯ãƒªãƒ—ãƒˆ
+'# "youtube-dl.exe","ffmpeg.exe","ffprobe.exe"å¿…é ˆ
+'# "target.txt"ã«å¯¾è±¡URLã‚’è¨˜è¼‰ã—ã¦åŒéšå±¤ã«ä¿å­˜ã™ã‚‹ã“ã¨
 '#################################################
 Option Explicit
 
-'# iTunesƒtƒHƒ‹ƒ_
-Const iTunesFolder = "L:\data\MyMusic\iTunes Music\iTunes ‚É©“®“I‚É’Ç‰Á\"
+'# iTunesãƒ•ã‚©ãƒ«ãƒ€
+Const iTunesFolder = "L:\data\MyMusic\iTunes Music\iTunes ã«è‡ªå‹•çš„ã«è¿½åŠ \"
 
 Dim objShell, objFSO, objFile, prefix
 
-'# youtube-dlƒRƒ}ƒ“ƒhİ’è
-'# ƒI[ƒfƒBƒI‚Ì‚İ‰ß‹5“úˆÈ“à‚É“o˜^‚³‚ê‚½‚à‚Ì‚ª‘ÎÛ
+'# youtube-dlã‚³ãƒãƒ³ãƒ‰è¨­å®š
+'# ã‚ªãƒ¼ãƒ‡ã‚£ã‚ªã®ã¿éå»5æ—¥ä»¥å†…ã«ç™»éŒ²ã•ã‚ŒãŸã‚‚ã®ãŒå¯¾è±¡
 prefix = "youtube-dl.exe " &_
 	"--no-check-certificate " &_
 	"--download-archive Downloaded.txt " &_
@@ -21,7 +21,7 @@ prefix = "youtube-dl.exe " &_
 	"--dateafter now-5day " &_
 	"-o ""Files\%(title)s.%(ext)s"" "
 
-'# ƒ^[ƒQƒbƒg‚É‹LÚ‚³‚ê‚½URL‚ğƒ_ƒEƒ“ƒ[ƒh
+'# ã‚¿ãƒ¼ã‚²ãƒƒãƒˆã«è¨˜è¼‰ã•ã‚ŒãŸURLã‚’ãƒ€ã‚¦ãƒ³ãƒ­ãƒ¼ãƒ‰
 Set objShell = WScript.CreateObject("WScript.Shell")
 Set objFSO = WScript.CreateObject("Scripting.FileSystemObject")
 Set objFile = objFSO.OpenTextFile("target.txt")
@@ -32,10 +32,10 @@ Do While objFile.AtEndOfStream <> True
 Loop
 objFile.Close
 
-'# Ä¶ˆÊ’u‚ğ‹L‰¯‚³‚¹‚½‚¢‚Ì‚ÅƒI[ƒfƒBƒIƒuƒbƒN‚ÉŠg’£q‚ğ•ÏXim4a¨m4bj
+'# å†ç”Ÿä½ç½®ã‚’è¨˜æ†¶ã•ã›ãŸã„ã®ã§ã‚ªãƒ¼ãƒ‡ã‚£ã‚ªãƒ–ãƒƒã‚¯ã«æ‹¡å¼µå­ã‚’å¤‰æ›´ï¼ˆm4aâ†’m4bï¼‰
 Call objShell.Run("cmd /c ren Files\*.m4a *.m4b", 1, true)
 
-'# iTunes‚É©“®“I‚É’Ç‰ÁƒtƒHƒ‹ƒ_‚ÖˆÚ“®
+'# iTunesã«è‡ªå‹•çš„ã«è¿½åŠ ãƒ•ã‚©ãƒ«ãƒ€ã¸ç§»å‹•
 Call objFSO.MoveFile("Files\*", iTunesFolder)
 
 

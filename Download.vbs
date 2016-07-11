@@ -36,7 +36,9 @@ objFile.Close
 Call objShell.Run("cmd /c ren Files\*.m4a *.m4b", 1, true)
 
 '# iTunesに自動的に追加フォルダへ移動
+On Error Resume Next
 Call objFSO.MoveFile("Files\*", iTunesFolder)
+On Error GoTo 0
 
 
 Set objShell = Nothing
